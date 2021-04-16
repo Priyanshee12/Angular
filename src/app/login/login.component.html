@@ -1,0 +1,36 @@
+<mat-card class="loginn" raised fxFlex="25">
+
+    <div class="logincontent" fxLayout="center center" fxFlexFill>
+
+        <!-- <form #formlogin="ngForm" (ngSubmit)="login(formlogin)"> -->
+        <form #formlogin="ngForm" (ngSubmit)="login(formlogin)">
+            <mat-toolbar class="logintitle">Login</mat-toolbar><br>
+            <mat-form-field>
+                <div class=" form-group">
+                    <input matInput class="form-control" placeholder="Enter email" [(ngModel)]="model.email" name="email" #email="ngModel" [ngClass]="{ 'is-invalid': formlogin.ngSubmit && email.invalid}" required>
+                    <span *ngIf="formlogin.submitted && email.invalid" class="invalid-feedback"></span>
+                    <span *ngIf="email.errors?.required">Email required</span>
+                    <span *ngIf="email.errors?.email">Email must be a valid email</span>
+
+                </div>
+            </mat-form-field>
+            <br>
+            <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput #input maxlength="10" placeholder="Password" [(ngModel)]="model.pwd" name="pwd" #pwd="ngModel">
+
+            </mat-form-field><br>
+
+            <!-- <mat-form-field appearance="fill">
+                <mat-label>User type</mat-label>
+                <mat-select [(ngModel)]="model.type" name="type" #type="ngModel">
+                    <mat-option value="admin">Admin</mat-option>
+                    <mat-option value="user">User</mat-option>
+                </mat-select>
+            </mat-form-field> -->
+            <br>
+            <button mat-raised-button type="submit">Login</button><br><br>
+            <button mat-raised-button (click)="register()">Register</button>
+        </form>
+    </div>
+</mat-card>

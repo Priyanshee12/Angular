@@ -1,0 +1,102 @@
+<!-- <h1>Register here</h1> -->
+<!-- <mat-slider min="1" max="100" step="1" value="1"></mat-slider> -->
+<div class="container register">
+    <!-- <div class="register"> -->
+    <!-- <div class="registrow"> -->
+    <form #formsub="ngForm" (ngSubmit)="register(formsub)">
+
+
+
+        <h2 class="registertitle"> Register here</h2>
+
+        <mat-form-field>
+            <div class="form-group">
+                <input matInput class="form-control" placeholder="First name" name="fname" [(ngModel)]="model.fname" #firstname="ngModel" [ngClass]="{'is-invalid': formsub.ngSubmit && firstname.invalid}" name="fname" required>
+                <span *ngIf="firstname.invalid && firstname.touched" class="error">Field required</span>
+            </div>
+        </mat-form-field>
+        <br><br>
+
+        <mat-form-field>
+            <div class="form-group">
+                <input matInput class="form-control" placeholder="Last name" name="lname" [(ngModel)]="model.lname" #lastname="ngModel" [ngClass]="{'is-invalid': formsub.ngSubmit && lastname.invalid}" name="lname" required>
+                <span *ngIf="lastname.invalid && lastname.touched" class="error">Field required</span>
+            </div>
+        </mat-form-field>
+        <br><br>
+
+
+        <div>
+            <mat-form-field>
+                <input type="email" matInput class="form-control" placeholder="Enter email" [(ngModel)]="model.email" #email="ngModel" name="email" required email/>
+                <!-- <div *ngIf="formsub.submitted && email.invalid" class="invalid-feedback">
+                            <div *ngIf="email.errors?.required">EMail required</div>
+                            <div *ngIf="email.errors?.email ">Email must be a valid email</div>
+                        </div> -->
+                <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="email.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <!-- </div> -->
+        <br>
+        <!-- <mat-form-field> -->
+        <!-- <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" [(ngModel)]="model.email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com">
+                    <mat-hint>Errors appear instantly!</mat-hint>
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field> -->
+
+
+        <!-- <span *ngIf="!userDetails.get('email')?.valid && userDetails.get('email')?.touched"> -->
+
+        <!-- <div class="example-container">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your email</mat-label>
+                        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div> -->
+        <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+            <input [(ngModel)]="model.password" name="pwd" #password="ngModel" matInput #input maxlength="10" placeholder="Password">
+            <mat-hint align="start">{{input.value?.length || 0}}/10</mat-hint>
+        </mat-form-field><br><br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>User type</mat-label>
+            <mat-select [(ngModel)]="model.type" name="type" #type="ngModel">
+                <mat-option value="admin">Admin</mat-option>
+                <mat-option value="user">User</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div>
+            <button [disabled]=!formsub.valid mat-raised-button id="sbmt">Register</button>
+        </div>
+        <!-- <div class="form-group ">
+                    <input type="password " class="form-control " placeholder="password " [(ngModel)]="model.password" #password="ngModel" [ngClass]="{'is-invalid': formsub.ngSubmit && email.invalid}" name="password" required inlength="6/>
+                    <div *ngIf=" formsub.submitted && password.invalid " class="invalid-feedback ">>
+                </div> -->
+
+        <!-- <div class="form-group ">
+                    <label for="confirmPassword ">Confirm Password</label>
+                    <input type="password " class="form-control " name="confirmPassword " [(ngModel)]="model.confirmPassword " #confirmPassword="ngModel " [ngClass]="{ 'is-invalid': formsub.submitted && confirmPassword.invalid } " required />
+                    <div *ngIf="formsub.submitted && confirmPassword.invalid " class="invalid-feedback ">
+                        <div *ngIf="confirmPassword.errors.required ">Confirm Password is required</div>
+                        <div *ngIf="confirmPassword.errors.mustMatch ">Passwords must match</div>
+                    </div>
+                </div> -->
+
+    </form>
+    <!-- </div> -->
+</div>
+<!-- </div> -->

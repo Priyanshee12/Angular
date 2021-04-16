@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        <div>
+            <form #formsub="ngForm">
+                <!-- (ngSubmit)="update(formsub)"> -->
+
+
+
+                <h2 class="text-cneter "> Update here</h2>
+
+                <mat-form-field>
+                    <div class="form-group">
+                        <input matInput class="form-control" placeholder="First name" name="fname" [(ngModel)]="model.fname" #firstname="ngModel" [ngClass]="{'is-invalid': formsub.ngSubmit && firstname.invalid}" name="fname" required>
+                        <span *ngIf="firstname.invalid && firstname.touched" class="error">Field required</span>
+                    </div>
+                </mat-form-field>
+                <br><br>
+
+                <mat-form-field>
+                    <div class="form-group">
+                        <input matInput class="form-control" placeholder="Last name" name="lname" [(ngModel)]="model.lname" #lastname="ngModel" [ngClass]="{'is-invalid': formsub.ngSubmit && lastname.invalid}" name="lname" required>
+                        <span *ngIf="lastname.invalid && lastname.touched" class="error">Field required</span>
+                    </div>
+                </mat-form-field>
+                <br><br>
+
+
+                <div>
+                    <mat-form-field>
+                        <input type="email" matInput class="form-control" placeholder="Enter email" [(ngModel)]="model.email" #email="ngModel" name="email" required email/>
+
+                        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="email.hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <br>
+
+                <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+                    <input [(ngModel)]="model.password" name="pwd" #password="ngModel" matInput #input maxlength="10" placeholder="Password">
+                    <!-- <mat-hint align="start">{{input.value?.length || 0}}/10</mat-hint> -->
+                </mat-form-field><br><br>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>User type</mat-label>
+                    <mat-select [(ngModel)]="model.type" name="type" #type="ngModel">
+                        <mat-option value="admin">Admin</mat-option>
+                        <mat-option value="user">User</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <div>
+                    <button [disabled]=!formsub.valid mat-raised-button id="sbmt">Register</button>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<!-- <div class="rowhead">
+    <mat-toolbar class="headretool">
+        <mat-button-toggle *ngIf='!service.isUserLoggedIn' routerLink="registration">Register</mat-button-toggle>
+        <mat-button-toggle *ngIf='!service.isUserLoggedIn' routerLink="login">Login</mat-button-toggle>
+        <mat-button-toggle *ngIf='service.isUserLoggedIn && service.isAdmin' routerLink="admin">Admin</mat-button-toggle>
+        <mat-button-toggle *ngIf='service.isUserLoggedIn && !service.isAdmin' routerLink="user">User</mat-button-toggle>
+        <mat-button-toggle *ngIf='service.isUserLoggedIn && !service.isAdmin' routerLink="profile">Profile</mat-button-toggle>
+    </mat-toolbar>
+</div> -->
+<!-- 
+<div class="rowhead">
+    <mat-toolbar color='primary'>
+        <button mat-raised-button *ngIf='!service.isUserLoggedIn' routerLink="registration">Register</button> &nbsp;&nbsp;
+        <button mat-raised-button *ngIf='!service.isUserLoggedIn' routerLink="login">Login</button>&nbsp;&nbsp;
+
+        <button mat-raised-button *ngIf='service.isUserLoggedIn && service.isAdmin' routerLink="admin">Admin</button>&nbsp;&nbsp;
+        <button mat-raised-button *ngIf='service.isUserLoggedIn && !service.isAdmin' routerLink="user">User</button>&nbsp;&nbsp;
+        <button mat-raised-button *ngIf='service.isUserLoggedIn && !service.isAdmin' routerLink="profile">Profile</button>&nbsp;&nbsp;
+    </mat-toolbar>
+</div> -->
+
+<div class="rowhead">
+    <mat-toolbar color='primary'>
+        <button mat-raised-button *ngIf='!service.isUserLoggedIn' routerLink="registration">Register</button> &nbsp;&nbsp;
+        <button mat-raised-button *ngIf='!service.isUserLoggedIn' routerLink="login">Login</button>&nbsp;&nbsp;
+        <button mat-raised-button *ngIf='service.isUserLoggedIn && service.isAdmin' routerLink="admin">Admin</button>&nbsp;&nbsp;
+        <button mat-raised-button *ngIf='service.isUserLoggedIn && !service.isAdmin' routerLink="user">User</button>&nbsp;&nbsp;
+        <button mat-raised-button *ngIf='service.isUserLoggedIn && !service.isAdmin' routerLink="profile">Profile</button>&nbsp;&nbsp;
+        <button mat-raised-button *ngIf='service.isUserLoggedIn' routerLink="login" (click)="logout">Logout</button>
+    </mat-toolbar>
+</div>

@@ -1,0 +1,17 @@
+.register {
+    background-color: rgb(225, 225, 225);
+    margin-left: 30%;
+    margin-top: 5%;
+    width: 30%;
+    text-align: center;
+}
+
+
+/* .registerow {
+    margin-left: 20%;
+} */
+
+.registertitle {
+    background-color: rgb(59, 59, 214);
+    /* margin-left: 1%; */
+}
